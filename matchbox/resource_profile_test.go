@@ -5,9 +5,9 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/coreos/matchbox/matchbox/storage/testfakes"
 	"github.com/hashicorp/terraform/helper/resource"
 	"github.com/hashicorp/terraform/terraform"
+	"github.com/poseidon/matchbox/matchbox/storage/testfakes"
 )
 
 func TestResourceProfile(t *testing.T) {
@@ -49,7 +49,7 @@ func TestResourceProfile(t *testing.T) {
 
 		boot := profile.GetBoot()
 		if boot.GetKernel() != "foo" {
-			return fmt.Errorf("kernel, found %d", boot.GetKernel())
+			return fmt.Errorf("kernel, found %s", boot.GetKernel())
 		}
 
 		initrd := boot.GetInitrd()

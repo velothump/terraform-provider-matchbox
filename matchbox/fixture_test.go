@@ -5,10 +5,10 @@ import (
 	"io/ioutil"
 	"net"
 
-	"github.com/coreos/matchbox/matchbox/rpc"
-	"github.com/coreos/matchbox/matchbox/server"
-	"github.com/coreos/matchbox/matchbox/storage"
-	"github.com/coreos/matchbox/matchbox/tlsutil"
+	"github.com/poseidon/matchbox/matchbox/rpc"
+	"github.com/poseidon/matchbox/matchbox/server"
+	"github.com/poseidon/matchbox/matchbox/storage"
+	"github.com/poseidon/matchbox/matchbox/tlsutil"
 	"google.golang.org/grpc"
 )
 
@@ -66,7 +66,7 @@ func (s *FixtureServer) Start() {
 		panic(fmt.Errorf("Invalid TLS credentials: %v", err))
 	}
 
-	srv := server.NewServer(&server.Config{s.Store})
+	srv := server.NewServer(&server.Config{Store: s.Store})
 	s.Server = rpc.NewServer(srv, cfg)
 	s.Server.Serve(s.Listener)
 }

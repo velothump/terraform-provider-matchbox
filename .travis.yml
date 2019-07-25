@@ -1,10 +1,11 @@
 language: go
 go:
-  - 1.8
+  - "1.10.x"
+  - "1.11.x"
+  - "1.12.x"
 install:
-  - go get github.com/golang/lint/golint
+  - go get golang.org/x/lint/golint
 script:
-  - make build
-  - make test
+  - make
 notifications:
   email: change
